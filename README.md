@@ -13,7 +13,7 @@ Below are the possible scenarios considered when we translate the above rules fo
 	Player1	Player2	  score	              Winner
 	0	        0	       0/0	
 	0	        1	       0/15	
-	0 	      2	       0/30	
+	0 	      	2	       0/30	
 	0	        3	       0/40	
 	0	        4		                        player2
 
@@ -29,11 +29,15 @@ Below are the possible scenarios considered when we translate the above rules fo
 	3	        2	      40/30	
 	3	        3	      deuce	
 	3	        3+1	   advantage	
-option1	
-  3	      3+1+1		                       Player 2
+	
+option1
+
+  	3	      3+1+1		                       Player 2
+	
 option2	
-  3+1	    3+1	       deuce	
-	3+1+1 	3+1		                         Player1
+
+ 	3+1	    3+1	       	      deuce	
+	3+1+1 	    3+1			                       Player1
 				
 				
 
