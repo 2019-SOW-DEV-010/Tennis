@@ -14,4 +14,13 @@ public class TennisGameTest {
 
         assertEquals("Love_All", score);
     }
+
+    @Test
+    public void shouldReturnFifteenALlWhenBothPlayersScoresOnePointEach() {
+        TennisGame game = new TennisGame(1,1);
+
+        String score = game.getScore();
+
+        assertEquals("Fifteen_All", score);
+    }
 }
