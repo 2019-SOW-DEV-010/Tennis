@@ -38,6 +38,10 @@ public class TennisGame {
             }else {
                 score = DEUCE;
             }
+        }else {
+            if(playerOne.getPointsScored() == 1 && playerTwo.getPointsScored() == 0) {
+                score = FIFTEEN+UNDERSCORE+LOVE;
+            }
         }
         return score;
     }

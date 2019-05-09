@@ -17,7 +17,7 @@ public class TennisGameTest {
     public void initializeGame() {
         playerOne = new Player();
         playerTwo = new Player();
-        game = new TennisGame(playerOne,playerOne);
+        game = new TennisGame(playerOne,playerTwo);
     }
 
     @Test
@@ -56,6 +56,14 @@ public class TennisGameTest {
         player2WinsBall(4);
 
         assertEquals("Deuce", game.getScore());
+    }
+
+    @Test
+    public void shouldReturnFifteenLoveWhenPlayer1WinsOneBallAndPlayer2WinsNoBall() {
+        player1WinsBall(1);
+        player2WinsBall(0);
+
+        assertEquals("Fifteen_Love", game.getScore());
     }
 
     private void player1WinsBall(int times) {
