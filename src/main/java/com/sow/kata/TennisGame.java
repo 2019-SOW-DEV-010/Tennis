@@ -10,6 +10,7 @@ public class TennisGame {
     public static final String LOVE = "Love";
     public static final String FIFTEEN = "Fifteen";
     public static final String THIRTY = "Thirty";
+    public static final String FOURTY = "Fourty";
 
     private Player playerOne;
     private Player playerTwo;
@@ -44,6 +45,9 @@ public class TennisGame {
                 break;
             case 2:
                 scoreDescription = THIRTY;
+                break;
+            case 3:
+                scoreDescription = FOURTY;
                 break;
         }
         return scoreDescription;
