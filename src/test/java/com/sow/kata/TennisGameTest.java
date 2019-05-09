@@ -28,32 +28,37 @@ public class TennisGameTest {
 
     @Test
     public void shouldReturnFifteenALlWhenBothPlayersScoresOnePointEach() {
-        playerOne.winABall();
-        playerTwo.winABall();
+        player1WinsBall(1);
+        player2WinsBall(1);
 
         assertEquals("Fifteen_All", game.getScore());
     }
 
     @Test
     public void shouldReturnThirtyALlWhenBothPlayersScoresTwoPointEach() {
-        playerOne.winABall();
-        playerOne.winABall();
-        playerTwo.winABall();
-        playerTwo.winABall();
+        player1WinsBall(2);
+        player2WinsBall(2);
 
         assertEquals("Thirty_All", game.getScore());
     }
 
     @Test
     public void shouldReturnDeuceWhenBothPlayersScoresThreePointsEach() {
-        playerOne.winABall();
-        playerOne.winABall();
-        playerOne.winABall();
-        playerTwo.winABall();
-        playerTwo.winABall();
-        playerTwo.winABall();
-
+        player1WinsBall(3);
+        player2WinsBall(3);
         assertEquals("Deuce", game.getScore());
+    }
+
+    private void player1WinsBall(int times) {
+        for(int i=1; i<=times; i++) {
+            playerOne.winABall();
+        }
+    }
+
+    private void player2WinsBall(int times) {
+        for(int i=1; i<=times; i++) {
+            playerTwo.winABall();
+        }
     }
 }
 
