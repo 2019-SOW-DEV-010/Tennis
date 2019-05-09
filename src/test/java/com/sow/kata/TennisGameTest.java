@@ -66,6 +66,13 @@ public class TennisGameTest {
         assertEquals("Fifteen_Love", game.getScore());
     }
 
+    @Test
+    public void shouldReturnThirtyLoveWhenPlayer1WinsTwoBalls() {
+        player1WinsBall(2);
+
+        assertEquals("Thirty_Love", game.getScore());
+    }
+
     private void player1WinsBall(int times) {
         for(int i=1; i<=times; i++) {
             playerOne.winABall();

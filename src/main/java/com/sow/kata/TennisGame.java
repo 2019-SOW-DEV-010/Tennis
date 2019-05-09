@@ -41,6 +41,8 @@ public class TennisGame {
         }else {
             if(playerOne.getPointsScored() == 1 && playerTwo.getPointsScored() == 0) {
                 score = FIFTEEN+UNDERSCORE+LOVE;
+            }else if(playerOne.getPointsScored() == 2 && playerTwo.getPointsScored() ==0 ) {
+                score = THIRTY+UNDERSCORE+LOVE;
             }
         }
         return score;
