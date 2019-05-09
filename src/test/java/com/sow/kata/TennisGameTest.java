@@ -46,6 +46,15 @@ public class TennisGameTest {
     public void shouldReturnDeuceWhenBothPlayersScoresThreePointsEach() {
         player1WinsBall(3);
         player2WinsBall(3);
+
+        assertEquals("Deuce", game.getScore());
+    }
+
+    @Test
+    public void shouldReturnDeuceWhenBothPlayersHasEqualScoreAndGreaterThanThree() {
+        player1WinsBall(4);
+        player2WinsBall(4);
+
         assertEquals("Deuce", game.getScore());
     }
 

@@ -15,19 +15,20 @@ public class TennisGame {
     public String getScore() {
         String score = null;
         if(playerOne.getPointsScored() == playerTwo.getPointsScored()) {
-            switch (playerOne.getPointsScored()) {
-                case 0:
-                    score = "Love_All";
-                    break;
-                case 1:
-                    score = "Fifteen_All";
-                    break;
-                case 2:
-                    score = "Thirty_All";
-                    break;
-                case 3:
-                    score = "Deuce";
-                    break;
+            if(playerOne.getPointsScored() <3) {
+                switch (playerOne.getPointsScored()) {
+                    case 0:
+                        score = "Love_All";
+                        break;
+                    case 1:
+                        score = "Fifteen_All";
+                        break;
+                    case 2:
+                        score = "Thirty_All";
+                        break;
+                }
+            }else {
+                score = "Deuce";
             }
         }
         return score;
