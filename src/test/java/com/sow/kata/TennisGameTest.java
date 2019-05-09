@@ -22,9 +22,8 @@ public class TennisGameTest {
 
     @Test
     public void shouldReturnLoveAllWhenBothPlayersHasZeroPoints() {
-        String score = game.getScore();
 
-        assertEquals("Love_All", score);
+        assertEquals("Love_All", game.getScore());
     }
 
     @Test
@@ -32,8 +31,6 @@ public class TennisGameTest {
         playerOne.setPointsScored(1);
         playerTwo.setPointsScored(1);
 
-        String score = game.getScore();
-
-        assertEquals("Fifteen_All", score);
+        assertEquals("Fifteen_All", game.getScore());
     }
 }
