@@ -8,8 +8,8 @@ public class Player {
         return pointsScored;
     }
 
-    public void setPointsScored(int pointsScored) {
-        this.pointsScored = pointsScored;
+    public void winABall() {
+        pointsScored = pointsScored+1;
     }
 
 }
