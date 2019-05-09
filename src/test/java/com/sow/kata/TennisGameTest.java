@@ -34,13 +34,20 @@ public class TennisGameTest {
         assertEquals("Fifteen_All", game.getScore());
     }
 
-
     @Test
     public void shouldReturnThirtyALlWhenBothPlayersScoresTwoPointEach() {
         playerOne.setPointsScored(2);
         playerTwo.setPointsScored(2);
 
         assertEquals("Thirty_All", game.getScore());
+    }
+
+    @Test
+    public void shouldReturnDeuceWhenBothPlayersScoresThreePointsEach() {
+        playerOne.setPointsScored(3);
+        playerTwo.setPointsScored(3);
+
+        assertEquals("Deuce", game.getScore());
     }
 }
 

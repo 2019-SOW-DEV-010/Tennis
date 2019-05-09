@@ -20,6 +20,8 @@ public class TennisGame {
             score = "Fifteen_All";
         }else if(playerOne.getPointsScored() == 2 && playerTwo.getPointsScored() == 2) {
             score = "Thirty_All";
+        }else if(playerOne.getPointsScored() == 3 && playerTwo.getPointsScored() == 3) {
+            score = "Deuce";
         }
         return score;
     }
