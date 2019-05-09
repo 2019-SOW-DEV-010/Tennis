@@ -23,28 +23,29 @@ public class TennisGame {
         String score = null;
         if(playerOne.getPointsScored() == playerTwo.getPointsScored()) {
             if(playerOne.getPointsScored() <3) {
-                switch (playerOne.getPointsScored()) {
-                    case 0:
-                        score = LOVE;
-                        break;
-                    case 1:
-                        score = FIFTEEN;
-                        break;
-                    case 2:
-                        score = THIRTY;
-                        break;
-                }
-                score = score +UNDERSCORE+ ALL;
+                score = getScoreDescription(playerOne.getPointsScored()) +UNDERSCORE+ ALL;
             }else {
                 score = DEUCE;
             }
         }else {
-            if(playerOne.getPointsScored() == 1 && playerTwo.getPointsScored() == 0) {
-                score = FIFTEEN+UNDERSCORE+LOVE;
-            }else if(playerOne.getPointsScored() == 2 && playerTwo.getPointsScored() ==0 ) {
-                score = THIRTY+UNDERSCORE+LOVE;
-            }
+           score = getScoreDescription(playerOne.getPointsScored())+UNDERSCORE+getScoreDescription(playerTwo.getPointsScored());
         }
         return score;
+    }
+
+    private String getScoreDescription(int score) {
+        String scoreDescription = "";
+        switch (score) {
+            case 0:
+                scoreDescription = LOVE;
+                break;
+            case 1:
+                scoreDescription = FIFTEEN;
+                break;
+            case 2:
+                scoreDescription = THIRTY;
+                break;
+        }
+        return scoreDescription;
     }
 }
