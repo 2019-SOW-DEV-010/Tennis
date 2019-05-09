@@ -4,6 +4,13 @@ import com.sow.kata.model.Player;
 
 public class TennisGame {
 
+    public static final String DEUCE = "Deuce";
+    public static final String ALL = "All";
+    public static final String UNDERSCORE = "_";
+    public static final String LOVE = "Love";
+    public static final String FIFTEEN = "Fifteen";
+    public static final String THIRTY = "Thirty";
+
     private Player playerOne;
     private Player playerTwo;
 
@@ -18,17 +25,18 @@ public class TennisGame {
             if(playerOne.getPointsScored() <3) {
                 switch (playerOne.getPointsScored()) {
                     case 0:
-                        score = "Love_All";
+                        score = LOVE;
                         break;
                     case 1:
-                        score = "Fifteen_All";
+                        score = FIFTEEN;
                         break;
                     case 2:
-                        score = "Thirty_All";
+                        score = THIRTY;
                         break;
                 }
+                score = score +UNDERSCORE+ ALL;
             }else {
-                score = "Deuce";
+                score = DEUCE;
             }
         }
         return score;
