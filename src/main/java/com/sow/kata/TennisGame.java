@@ -1,19 +1,21 @@
 package com.sow.kata;
 
+import com.sow.kata.model.Player;
+
 public class TennisGame {
 
-    private int player1Score;
-    private int player2Score;
+    private Player playerOne;
+    private Player playerTwo;
 
-    public TennisGame(int player1ScorePoints, int player2ScorePoints) {
-        this.player1Score = player1ScorePoints;
-        this.player2Score = player2ScorePoints;
+    public TennisGame(Player playerOne, Player playerTwo) {
+        this.playerOne = playerOne;
+        this.playerTwo = playerTwo;
     }
 
     public String getScore() {
-        if(player1Score == 0 && player2Score ==0) {
+        if(playerOne.getPointsScored() == 0 && playerTwo.getPointsScored() ==0) {
             return "Love_All";
-        }else if(player1Score == 1 && player2Score == 1) {
+        }else if(playerOne.getPointsScored() == 1 && playerTwo.getPointsScored() == 1) {
             return "Fifteen_All";
         }
         return null;
