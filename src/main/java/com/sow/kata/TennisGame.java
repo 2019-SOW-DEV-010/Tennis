@@ -14,14 +14,21 @@ public class TennisGame {
 
     public String getScore() {
         String score = null;
-        if(playerOne.getPointsScored() == 0 && playerTwo.getPointsScored() ==0) {
-            score = "Love_All";
-        }else if(playerOne.getPointsScored() == 1 && playerTwo.getPointsScored() == 1) {
-            score = "Fifteen_All";
-        }else if(playerOne.getPointsScored() == 2 && playerTwo.getPointsScored() == 2) {
-            score = "Thirty_All";
-        }else if(playerOne.getPointsScored() == 3 && playerTwo.getPointsScored() == 3) {
-            score = "Deuce";
+        if(playerOne.getPointsScored() == playerTwo.getPointsScored()) {
+            switch (playerOne.getPointsScored()) {
+                case 0:
+                    score = "Love_All";
+                    break;
+                case 1:
+                    score = "Fifteen_All";
+                    break;
+                case 2:
+                    score = "Thirty_All";
+                    break;
+                case 3:
+                    score = "Deuce";
+                    break;
+            }
         }
         return score;
     }
