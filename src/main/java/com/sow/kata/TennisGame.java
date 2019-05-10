@@ -4,19 +4,19 @@ import com.sow.kata.model.Player;
 
 public class TennisGame {
 
-    public static final String DEUCE = "Deuce";
-    public static final String ALL = "All";
-    public static final String UNDERSCORE = "_";
-    public static final String LOVE = "Love";
-    public static final String FIFTEEN = "Fifteen";
-    public static final String THIRTY = "Thirty";
-    public static final String FOURTY = "Fourty";
-    public static final int MIN_NUM_POINTS_TO_BE_SCORED = 3;
-    public static final int MIN_POINTS_DIFF_NEEDED_TO_WIN = 2;
-    public static final String PLAYER1_HAS_WON = "Player1 Has Won";
-    public static final String PLAYER2_HAS_WON = "Player2 Has Won";
-    public static final String PLAYER1_HAS_ADVANTAGE = "Player1 Has Advantage";
-    public static final String PLAYER2_HAS_ADVANTAGE = "Player2 Has Advantage";
+    private static final String DEUCE = "Deuce";
+    private static final String ALL = "All";
+    private static final String UNDERSCORE = "_";
+    private static final String LOVE = "Love";
+    private static final String FIFTEEN = "Fifteen";
+    private static final String THIRTY = "Thirty";
+    private static final String FORTY = "Forty";
+    private static final int MIN_NUM_POINTS_TO_BE_SCORED = 3;
+    private static final int MIN_POINTS_DIFF_NEEDED_TO_WIN = 2;
+    private static final String PLAYER1_HAS_WON = "Player1 Has Won";
+    private static final String PLAYER2_HAS_WON = "Player2 Has Won";
+    private static final String PLAYER1_HAS_ADVANTAGE = "Player1 Has Advantage";
+    private static final String PLAYER2_HAS_ADVANTAGE = "Player2 Has Advantage";
 
     private Player playerOne;
     private Player playerTwo;
@@ -78,7 +78,7 @@ public class TennisGame {
                 scoreDescription = THIRTY;
                 break;
             case 3:
-                scoreDescription = FOURTY;
+                scoreDescription = FORTY;
                 break;
         }
         return scoreDescription;
