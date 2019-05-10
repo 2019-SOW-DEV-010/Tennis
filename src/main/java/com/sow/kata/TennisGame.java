@@ -16,6 +16,7 @@ public class TennisGame {
     public static final String PLAYER1_HAS_WON = "Player1 Has Won";
     public static final String PLAYER2_HAS_WON = "Player2 Has Won";
     public static final String PLAYER1_HAS_ADVANTAGE = "Player1 Has Advantage";
+    public static final String PLAYER2_HAS_ADVANTAGE = "Player2 Has Advantage";
 
     private Player playerOne;
     private Player playerTwo;
@@ -31,8 +32,10 @@ public class TennisGame {
             score = deuceOrAllScore();
         }else if(playerOne.getPointsScored() > MIN_NUM_POINTS_TO_BE_SCORED  || playerTwo.getPointsScored() > MIN_NUM_POINTS_TO_BE_SCORED) {
             score = wonTheGame(score);
-            if(playerOne.getPointsScored()-playerTwo.getPointsScored() == 1) {
+            if(playerOne.getPointsScored()- playerTwo.getPointsScored() == 1) {
                 score = PLAYER1_HAS_ADVANTAGE;
+            }if(playerTwo.getPointsScored() - playerOne.getPointsScored() == 1) {
+                score = PLAYER2_HAS_ADVANTAGE;
             }
         }else {
             score = getScoreDescription(playerOne.getPointsScored())+UNDERSCORE+getScoreDescription(playerTwo.getPointsScored());
