@@ -11,6 +11,8 @@ public class TennisGame {
     public static final String FIFTEEN = "Fifteen";
     public static final String THIRTY = "Thirty";
     public static final String FOURTY = "Fourty";
+    public static final int MIN_NUM_POINTS_TO_BE_SCORED = 3;
+    public static final int MIN_POINTS_DIFF_NEEDED_TO_WIN = 2;
 
     private Player playerOne;
     private Player playerTwo;
@@ -23,13 +25,13 @@ public class TennisGame {
     public String getScore() {
         String score = null;
         if(playerOne.getPointsScored() == playerTwo.getPointsScored()) {
-            if(playerOne.getPointsScored() < 3) {
+            if(playerOne.getPointsScored() < MIN_NUM_POINTS_TO_BE_SCORED) {
                 score = getScoreDescription(playerOne.getPointsScored()) +UNDERSCORE+ ALL;
             }else {
                 score = DEUCE;
             }
         }else {
-            if(playerOne.getPointsScored() >3 && playerOne.getPointsScored()-playerTwo.getPointsScored() >= 2) {
+            if(playerOne.getPointsScored() > MIN_NUM_POINTS_TO_BE_SCORED && playerOne.getPointsScored()-playerTwo.getPointsScored() >= MIN_POINTS_DIFF_NEEDED_TO_WIN) {
                 score = "Player1 Has Won";
             }else {
                 score = getScoreDescription(playerOne.getPointsScored())+UNDERSCORE+getScoreDescription(playerTwo.getPointsScored());
