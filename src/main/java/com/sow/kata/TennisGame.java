@@ -28,7 +28,7 @@ public class TennisGame {
 
     public String getScore() {
         String score = null;
-        if(playerOne.getPointsScored() == playerTwo.getPointsScored()) {
+        if(isPlayersScoresAreEqual()) {
             score = deuceOrAllScore();
         }else if(playerOne.getPointsScored() > MIN_NUM_POINTS_TO_BE_SCORED  || playerTwo.getPointsScored() > MIN_NUM_POINTS_TO_BE_SCORED) {
             score = wonTheGameOrHasAdvantage();
@@ -36,6 +36,10 @@ public class TennisGame {
             score = getScoreDescription(playerOne.getPointsScored())+UNDERSCORE+getScoreDescription(playerTwo.getPointsScored());
         }
         return score;
+    }
+
+    private boolean isPlayersScoresAreEqual() {
+        return playerOne.getPointsScored() == playerTwo.getPointsScored();
     }
 
     private String hasAdvantage() {
