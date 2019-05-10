@@ -62,15 +62,10 @@ public class TennisGame {
     }
 
     private String wonTheGameOrHasAdvantage() {
-        String score = null;
-        if (playerOne.getPointsScored() - playerTwo.getPointsScored() >= MIN_POINTS_DIFF_NEEDED_TO_WIN) {
-            score = PLAYER1_HAS_WON;
-        } else if (playerTwo.getPointsScored() - playerOne.getPointsScored() >= MIN_POINTS_DIFF_NEEDED_TO_WIN) {
-            score = PLAYER2_HAS_WON;
-        }else {
-            score = hasAdvantage();
+        if(Math.abs(playerOne.getPointsScored() - playerTwo.getPointsScored()) >= MIN_POINTS_DIFF_NEEDED_TO_WIN) {
+            return playerOne.getPointsScored()>playerTwo.getPointsScored() ? PLAYER1_HAS_WON : PLAYER2_HAS_WON;
         }
-        return score;
+        return hasAdvantage();
     }
 
 }
