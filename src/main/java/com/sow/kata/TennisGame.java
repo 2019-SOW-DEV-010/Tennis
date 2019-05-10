@@ -28,12 +28,10 @@ public class TennisGame {
         String score = null;
         if(playerOne.getPointsScored() == playerTwo.getPointsScored()) {
             score = deuceOrAllScore();
-        }else {
-            if(playerOne.getPointsScored() > MIN_NUM_POINTS_TO_BE_SCORED  || playerTwo.getPointsScored() > MIN_NUM_POINTS_TO_BE_SCORED) {
+        }else if(playerOne.getPointsScored() > MIN_NUM_POINTS_TO_BE_SCORED  || playerTwo.getPointsScored() > MIN_NUM_POINTS_TO_BE_SCORED) {
                 score = wonTheGame(score);
-            }else {
-                score = getScoreDescription(playerOne.getPointsScored())+UNDERSCORE+getScoreDescription(playerTwo.getPointsScored());
-            }
+        }else {
+            score = getScoreDescription(playerOne.getPointsScored())+UNDERSCORE+getScoreDescription(playerTwo.getPointsScored());
         }
         return score;
     }
