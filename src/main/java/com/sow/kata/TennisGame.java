@@ -23,13 +23,17 @@ public class TennisGame {
     public String getScore() {
         String score = null;
         if(playerOne.getPointsScored() == playerTwo.getPointsScored()) {
-            if(playerOne.getPointsScored() <3) {
+            if(playerOne.getPointsScored() < 3) {
                 score = getScoreDescription(playerOne.getPointsScored()) +UNDERSCORE+ ALL;
             }else {
                 score = DEUCE;
             }
         }else {
-           score = getScoreDescription(playerOne.getPointsScored())+UNDERSCORE+getScoreDescription(playerTwo.getPointsScored());
+            if(playerOne.getPointsScored() >3 && playerOne.getPointsScored()-playerTwo.getPointsScored() >= 2) {
+                score = "Player1 Has Won";
+            }else {
+                score = getScoreDescription(playerOne.getPointsScored())+UNDERSCORE+getScoreDescription(playerTwo.getPointsScored());
+            }
         }
         return score;
     }
