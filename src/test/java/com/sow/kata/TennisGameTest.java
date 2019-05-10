@@ -96,6 +96,14 @@ public class TennisGameTest {
         assertEquals("Player2 Has Won", game.getScore());
     }
 
+    @Test
+    public void shouldReturnPlayer1HasAdvantageWhenPlayer1WinsFourBallsBallsAndPlayer2WinsThreeBall() {
+        player1WinsBall(4);
+        player2WinsBall(3);
+
+        assertEquals("Player1 Has Advantage", game.getScore());
+    }
+
     private void player1WinsBall(int times) {
         for(int i=1; i<=times; i++) {
             playerOne.winABall();
