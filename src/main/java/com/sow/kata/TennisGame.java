@@ -30,12 +30,16 @@ public class TennisGame {
         String score = null;
         if(isPlayersScoresAreEqual()) {
             score = deuceOrAllScore();
-        }else if(playerOne.getPointsScored() > MIN_NUM_POINTS_TO_BE_SCORED  || playerTwo.getPointsScored() > MIN_NUM_POINTS_TO_BE_SCORED) {
+        }else if(isPlayersScoredMinimumPoints()) {
             score = wonTheGameOrHasAdvantage();
         }else {
             score = getScoreDescription(playerOne.getPointsScored())+UNDERSCORE+getScoreDescription(playerTwo.getPointsScored());
         }
         return score;
+    }
+
+    private boolean isPlayersScoredMinimumPoints() {
+        return playerOne.getPointsScored() > MIN_NUM_POINTS_TO_BE_SCORED  || playerTwo.getPointsScored() > MIN_NUM_POINTS_TO_BE_SCORED;
     }
 
     private boolean isPlayersScoresAreEqual() {
