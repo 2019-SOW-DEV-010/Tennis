@@ -34,14 +34,19 @@ public class TennisGame {
             }
         }else {
             if(playerOne.getPointsScored() > MIN_NUM_POINTS_TO_BE_SCORED  || playerTwo.getPointsScored() > MIN_NUM_POINTS_TO_BE_SCORED) {
-                if (playerOne.getPointsScored() - playerTwo.getPointsScored() >= MIN_POINTS_DIFF_NEEDED_TO_WIN) {
-                    score = PLAYER1_HAS_WON;
-                } else if (playerTwo.getPointsScored() - playerOne.getPointsScored() >= MIN_POINTS_DIFF_NEEDED_TO_WIN) {
-                    score = PLAYER2_HAS_WON;
-                }
+                score = wonTheGame(score);
             }else {
                 score = getScoreDescription(playerOne.getPointsScored())+UNDERSCORE+getScoreDescription(playerTwo.getPointsScored());
             }
+        }
+        return score;
+    }
+
+    private String wonTheGame(String score) {
+        if (playerOne.getPointsScored() - playerTwo.getPointsScored() >= MIN_POINTS_DIFF_NEEDED_TO_WIN) {
+            score = PLAYER1_HAS_WON;
+        } else if (playerTwo.getPointsScored() - playerOne.getPointsScored() >= MIN_POINTS_DIFF_NEEDED_TO_WIN) {
+            score = PLAYER2_HAS_WON;
         }
         return score;
     }
