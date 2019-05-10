@@ -12,12 +12,11 @@ public class TennisGame {
     private static final String UNDERSCORE = "_";
     private static final int MIN_NUM_POINTS_TO_BE_SCORED = 3;
     private static final int MIN_POINTS_DIFF_NEEDED_TO_WIN = 2;
-    private static final String PLAYER1_HAS_WON = "Player1 Has Won";
-    private static final String PLAYER2_HAS_WON = "Player2 Has Won";
-    private static final String PLAYER1_HAS_ADVANTAGE = "Player1 Has Advantage";
-    private static final String PLAYER2_HAS_ADVANTAGE = "Player2 Has Advantage";
+    private static final String PLAYER1 = "Player1 ";
+    private static final String PLAYER2 = "Player2 ";
+    private static final String HAS_WON = "Has Won";
+    private static final String HAS_ADVANTAGE = "Has Advantage";
     private static final List<String> scoreDescriptions = Arrays.asList("Love", "Fifteen", "Thirty", "Forty");
-    public static final int MIN_DIFFERENCE_TO_HAVE_ADVANTAGE = 1;
 
     private Player playerOne;
     private Player playerTwo;
@@ -32,7 +31,7 @@ public class TennisGame {
         if(isPlayersScoresAreEqual()) {
             score = deuceOrAllScore();
         }else if(isPlayersScoredMinimumPoints()) {
-            score = wonTheGameOrHasAdvantage();
+            score = getPlayerWithMaximumScore()+wonTheGameOrHasAdvantage();
         }else {
             score = scoreDescriptions.get(playerOne.getPointsScored())+UNDERSCORE+scoreDescriptions.get(playerTwo.getPointsScored());
         }
@@ -47,22 +46,16 @@ public class TennisGame {
         return playerOne.getPointsScored() == playerTwo.getPointsScored();
     }
 
-    private String hasAdvantage() {
-        if(Math.abs(playerOne.getPointsScored() - playerTwo.getPointsScored()) == MIN_DIFFERENCE_TO_HAVE_ADVANTAGE) {
-            return playerOne.getPointsScored()>playerTwo.getPointsScored() ? PLAYER1_HAS_ADVANTAGE : PLAYER2_HAS_ADVANTAGE;
-        }
-        return "";
-    }
-
     private String deuceOrAllScore() {
         return playerOne.getPointsScored() < MIN_NUM_POINTS_TO_BE_SCORED ? scoreDescriptions.get(playerOne.getPointsScored())+UNDERSCORE+ ALL : DEUCE;
     }
 
     private String wonTheGameOrHasAdvantage() {
-        if(Math.abs(playerOne.getPointsScored() - playerTwo.getPointsScored()) >= MIN_POINTS_DIFF_NEEDED_TO_WIN) {
-            return playerOne.getPointsScored()>playerTwo.getPointsScored() ? PLAYER1_HAS_WON : PLAYER2_HAS_WON;
-        }
-        return hasAdvantage();
+       return Math.abs(playerOne.getPointsScored() - playerTwo.getPointsScored()) >= MIN_POINTS_DIFF_NEEDED_TO_WIN ? HAS_WON : HAS_ADVANTAGE;
+    }
+
+    private String getPlayerWithMaximumScore() {
+        return playerOne.getPointsScored()>playerTwo.getPointsScored() ? PLAYER1 : PLAYER2;
     }
 
 }
