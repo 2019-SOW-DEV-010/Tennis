@@ -88,6 +88,14 @@ public class TennisGameTest {
         assertEquals("Player1 Has Won", game.getScore());
     }
 
+    @Test
+    public void shouldReturnPlayer2HasWonWhenPlayer1WinsOneBallsAndPlayer2WinsFourBall() {
+        player1WinsBall(1);
+        player2WinsBall(4);
+
+        assertEquals("Player2 Has Won", game.getScore());
+    }
+
     private void player1WinsBall(int times) {
         for(int i=1; i<=times; i++) {
             playerOne.winABall();
