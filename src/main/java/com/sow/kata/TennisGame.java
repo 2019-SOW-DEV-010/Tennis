@@ -17,6 +17,7 @@ public class TennisGame {
     private static final String PLAYER1_HAS_ADVANTAGE = "Player1 Has Advantage";
     private static final String PLAYER2_HAS_ADVANTAGE = "Player2 Has Advantage";
     private static final List<String> scoreDescriptions = Arrays.asList("Love", "Fifteen", "Thirty", "Forty");
+    public static final int MIN_DIFFERENCE_TO_HAVE_ADVANTAGE = 1;
 
     private Player playerOne;
     private Player playerTwo;
@@ -47,14 +48,10 @@ public class TennisGame {
     }
 
     private String hasAdvantage() {
-        String score = null;
-        if(playerOne.getPointsScored()- playerTwo.getPointsScored() == 1) {
-            score = PLAYER1_HAS_ADVANTAGE;
+        if(Math.abs(playerOne.getPointsScored() - playerTwo.getPointsScored()) == MIN_DIFFERENCE_TO_HAVE_ADVANTAGE) {
+            return playerOne.getPointsScored()>playerTwo.getPointsScored() ? PLAYER1_HAS_ADVANTAGE : PLAYER2_HAS_ADVANTAGE;
         }
-        if(playerTwo.getPointsScored() - playerOne.getPointsScored() == 1) {
-            score = PLAYER2_HAS_ADVANTAGE;
-        }
-        return score;
+        return "";
     }
 
     private String deuceOrAllScore() {
