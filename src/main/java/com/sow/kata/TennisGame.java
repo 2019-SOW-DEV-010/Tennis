@@ -13,6 +13,7 @@ public class TennisGame {
     public static final String FOURTY = "Fourty";
     public static final int MIN_NUM_POINTS_TO_BE_SCORED = 3;
     public static final int MIN_POINTS_DIFF_NEEDED_TO_WIN = 2;
+    public static final String PLAYER1_HAS_WON = "Player1 Has Won";
 
     private Player playerOne;
     private Player playerTwo;
@@ -32,8 +33,8 @@ public class TennisGame {
             }
         }else {
             if(playerOne.getPointsScored() > MIN_NUM_POINTS_TO_BE_SCORED && playerOne.getPointsScored()-playerTwo.getPointsScored() >= MIN_POINTS_DIFF_NEEDED_TO_WIN) {
-                score = "Player1 Has Won";
-            }else {
+                score = PLAYER1_HAS_WON;
+            } else {
                 score = getScoreDescription(playerOne.getPointsScored())+UNDERSCORE+getScoreDescription(playerTwo.getPointsScored());
             }
         }
